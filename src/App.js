@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <View {...styles.container}>
         <View {...styles.content}>
-          <Note />
+          <Note {...styles.content} />
         </View>
       </View>
     );

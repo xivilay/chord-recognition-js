@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
+import { findChord } from './utils';
 
 class NoteOn extends Component {
     constructor(props) {
@@ -32,17 +33,19 @@ class NoteOn extends Component {
     render() {
         const { notes } = this.state;
         const text = notes.join(' ');
+        const chords = notes.length === 3 ? findChord(notes) : [];
 
         return (
             <View {...this.props}>
-                <Text color='#66FDCF' {...styles}>{`Note ${text}`}</Text>
+                <Text color='#66FDCF' {...styles}>{`Note: ${text}`}</Text>
+                <Text color='#66FDCF' {...styles}>{`Chord: ${chords.join('/')}`}</Text>
             </View>
         );
     }
 }
 
 const styles = {
-    fontSize: 20.0,
+    fontSize: 40.0,
     lineSpacing: 1.6,
     fontStyle: Text.FontStyleFlags.bold
 };
