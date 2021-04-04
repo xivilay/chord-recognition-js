@@ -33,7 +33,7 @@ class NoteOn extends Component {
     render() {
         const { notes } = this.state;
         const text = notes.join(' ');
-        const chords = notes.length === 3 ? findChord(notes) : [];
+        const chords = findChord(notes);
 
         return (
             <View {...this.props}>
