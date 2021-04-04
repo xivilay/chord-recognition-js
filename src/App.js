@@ -25,15 +25,13 @@ const styles = {
     backgroundColor: "linear-gradient(45deg, hsla(225, 15%, 11%, 0.3), #17191f 50%)",
     justifyContent: "center",
     alignItems: "center",
+    padding: 20
   },
   content: {
     flex: 1.0,
     flexDirection: "column",
     justifyContent: "space-around",
-    alignItems: "center",
-    padding: 24.0,
-    maxWidth: 600,
-    aspectRatio: 400.0 / 240.0,
+    alignItems: "flex-start"
   }
 };
 

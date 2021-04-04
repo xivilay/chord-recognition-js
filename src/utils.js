@@ -8,7 +8,7 @@ const getNoteName = noteNum => {
     return notes[noteIndex];
 }
 
-const getFullNoteName = noteNum => {
+export const getFullNoteName = noteNum => {
     const noteName = getNoteName(noteNum)
     const octave = Math.floor(noteNum / notesPerOctave) - 1;
     return noteName + octave;
