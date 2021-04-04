@@ -38,7 +38,7 @@ class NoteOn extends Component {
 
         return (
             <View {...this.props}>
-                <Text color='#1AB2B7' {...styles}>{`Note: ${notesText}`}</Text>
+                <Text color='#1AB2B7' {...styles}>{`Notes: ${notesText}`}</Text>
                 <Text color='#66FDCF' {...styles}>{`Chord: ${chordsText}`}</Text>
             </View>
         );

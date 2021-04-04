@@ -60,8 +60,8 @@ const isCyclicEqual = (a, b) => {
 
 const chordMapping = [
     { name: "powerchord", postfix: "5", intervals: [7, 5] },
-    { name: "major", postfix: "maj", intervals: [4, 3, 5] },
-    { name: "minor", postfix: "min", intervals: [3, 4, 5] },
+    { name: "major", postfix: "", intervals: [4, 3, 5] },
+    { name: "minor", postfix: "m", intervals: [3, 4, 5] },
     { name: "augmented", postfix: "aug", intervals: [4, 4, 4] },
     { name: "diminished", postfix: "dim", intervals: [3, 3, 6] },
     { name: "suspended", postfix: "sus2", intervals: [2, 5, 5] },
