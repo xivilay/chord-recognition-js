@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { EventBridge, Canvas, View } from 'react-juce';
+import { getNoteName, isBlackNote, notesPerOctave } from './utils';
 
-const OCTAVE_SIZE = 12;
 const octavesToSkip = 2;
 const shouldRenderText = true;
-
-const isBlackNote = i => [1, 3, 6, 8, 10].includes(i % OCTAVE_SIZE);
 
 const getSpiralEdges = ({ centerX, centerY, stepCount, loopCount, innerDistance, loopSpacing, rotation }) => {
     const stepSize = (2 * Math.PI) / stepCount;
@@ -38,11 +36,6 @@ const getZones = ({ spiralEdges, stepCount }) => {
         return acc;
     }, []);
 };
-
-const getNoteFromIndex = (i) => {
-    const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-    return notes[i % 12];
-}
 
 const renderSpiral = ({ spiralEdges, ctx }) => {
     ctx.strokeStyle = styles.colors.LINE_SPIRAL;
@@ -85,7 +78,7 @@ const renderSelected = (options) => {
             ctx.fillStyle = isBlackNote(i) ? styles.colors.FILL_DARK : styles.colors.FILL_LIGHT;
             ctx.fill();
 
-            if (shouldRenderText) renderZoneText({ctx, zone, text: getNoteFromIndex(i)});
+            if (shouldRenderText) renderZoneText({ctx, zone, text: getNoteName(i)});
         }
     });
 };
@@ -128,7 +121,7 @@ const renderZoneText = ({ctx, zone, text}) => {
 
 const render = (ctx, notes) => {
     const parameters = getParameters();
-    const selected = notes.map(note => note - octavesToSkip * OCTAVE_SIZE);
+    const selected = notes.map(note => note - octavesToSkip * notesPerOctave);
 
     const width = WIDTH; //ctx.canvas.width;
     const height = HEIGHT; //ctx.canvas.height;
