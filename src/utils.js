@@ -1,9 +1,9 @@
 const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-const notesPerOctave = notes.length;
+export const notesPerOctave = notes.length;
 
 const getNoteIndex = noteNum => noteNum % notesPerOctave;
 
-const getNoteName = noteNum => {
+export const getNoteName = noteNum => {
     const noteIndex = getNoteIndex(noteNum);
     return notes[noteIndex];
 }
@@ -13,6 +13,8 @@ export const getFullNoteName = noteNum => {
     const octave = Math.floor(noteNum / notesPerOctave) - 1;
     return noteName + octave;
 }
+
+export const isBlackNote = noteNum => [1, 3, 6, 8, 10].includes(getNoteIndex(noteNum));
 
 const getIntervals = noteNums => [...new Set(noteNums.map(getNoteIndex).sort((a, b) => a - b))].map((val, i, arr) => {
     const nextIndex = i + 1;

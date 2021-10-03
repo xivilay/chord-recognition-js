@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View } from "react-juce";
 import Note from "./Note";
-
+import Spiral from './Spiral'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <View {...styles.container}>
         <View {...styles.content}>
+          <Spiral />
           <Note {...styles.content} />
         </View>
       </View>
@@ -22,7 +23,7 @@ const styles = {
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "linear-gradient(45deg, hsla(225, 15%, 11%, 0.3), #17191f 50%)",
+    backgroundColor: "linear-gradient(45deg, hsla(125, 5%, 44%, 0.3), #e7e9ef 50%)",
     justifyContent: "center",
     alignItems: "center",
     padding: 20
