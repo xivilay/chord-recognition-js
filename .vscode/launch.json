@@ -1,6 +1,7 @@
 {
     "configurations": [
         {
+            // press Ctrl (CMD) + D in gui window before attaching
             "name": "Attach to DuctTape",
             "type": "duk",
             "request": "attach",
