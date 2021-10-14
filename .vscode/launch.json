@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Attach to DuctTape",
+            "type": "duk",
+            "request": "attach",
+            "stopOnEntry": false,
+            "address": "localhost",
+            "port": 9091,
+            "localRoots": ["${workspaceRoot}"],
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/build/js"
+        }
+    ]
+}
