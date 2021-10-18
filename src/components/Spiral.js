@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { EventBridge, Canvas, View } from 'react-juce';
-import { getNoteName, isBlackNote, notesPerOctave } from '../utils';
+import { getNoteName, isBlackNote, notesPerOctave } from '../theory/utils';
 import { palette } from '../global-styles';
 
 const octavesToSkip = 2;

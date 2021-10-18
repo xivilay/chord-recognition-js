@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
-import { findChord, getFullNoteName } from '../utils';
+import { findChord, getFullNoteName } from '../theory/utils';
 import { palette } from '../global-styles';
 
 class NoteOn extends Component {
