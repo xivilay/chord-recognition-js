@@ -1,3 +1,5 @@
+import chordMapping from "./chord-mapping";
+
 const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 export const notesPerOctave = notes.length;
 
@@ -59,24 +61,6 @@ const isCyclicEqual = (a, b) => {
 
     return bStartingIndexes.find(isEqualForStartingIndex);
 }
-
-const chordMapping = [
-    { name: "powerchord", postfix: "5", intervals: [7, 5] },
-    { name: "major", postfix: "", intervals: [4, 3, 5] },
-    { name: "minor", postfix: "m", intervals: [3, 4, 5] },
-    { name: "augmented", postfix: "aug", intervals: [4, 4, 4] },
-    { name: "diminished", postfix: "dim", intervals: [3, 3, 6] },
-    { name: "suspended", postfix: "sus2", intervals: [2, 5, 5] },
-    { name: "suspended", postfix: "sus4", intervals: [5, 2, 5] },
-    { name: "7diminished", postfix: "7dim", intervals: [3, 3, 3, 3] },
-    { name: "7major", postfix: "7maj", intervals: [4, 3, 4, 1] },
-    { name: "7minor", postfix: "7min", intervals: [3, 4, 3, 2] },
-    { name: "7augmented", postfix: "7aug", intervals: [4, 4, 2, 2] },
-    { name: "7half-diminished", postfix: "7hdim", intervals: [3, 3, 4, 2] },
-    { name: "7dominant", postfix: "7dom", intervals: [4, 3, 3, 2] },
-    { name: "7minor-major", postfix: "7minmaj", intervals: [3, 4, 4, 1] },
-    { name: "7augmented-major", postfix: "7augmaj", intervals: [4, 4, 3, 1] },
-];
 
 export const findChord = (notes) => {
     const intervals = getIntervals(notes);

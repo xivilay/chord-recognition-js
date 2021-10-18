@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-juce";
 import Note from "./Note";
 import Spiral from './Spiral'
+
 class App extends Component {
   constructor(props) {
     super(props);
