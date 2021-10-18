@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
-import { findChord, getFullNoteName } from '../theory/utils';
+import { getFullNoteName } from '../theory/utils';
+import { findChord } from '../theory/chords';
 import { palette } from '../global-styles';
 
-class NoteOn extends Component {
+class Note extends Component {
     constructor(props) {
         super(props);
 
         this._onActiveNotesChanged = this._onActiveNotesChanged.bind(this);
 
         this.state = {
-            notes: []
+            notes: [],
         };
     }
 
@@ -27,7 +28,7 @@ class NoteOn extends Component {
             notes: notes
                 .split(',')
                 .filter((a) => a !== '')
-                .sort()
+                .sort(),
         });
     }
 
@@ -49,11 +50,11 @@ class NoteOn extends Component {
 const styles = {
     colors: {
         notes: palette[1],
-        chord: palette[3] 
+        chord: palette[3],
     },
     fontSize: 40.0,
     lineSpacing: 1.6,
-    fontStyle: Text.FontStyleFlags.bold
+    fontStyle: Text.FontStyleFlags.bold,
 };
 
-export default NoteOn;
+export default Note;

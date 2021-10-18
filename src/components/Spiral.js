@@ -8,7 +8,7 @@ const shouldRenderText = true;
 
 const getSpiralEdges = ({ centerX, centerY, stepCount, loopCount, innerDistance, loopSpacing, rotation }) => {
     const stepSize = (2 * Math.PI) / stepCount;
-    const endAngle = (2 * Math.PI) * loopCount;
+    const endAngle = 2 * Math.PI * loopCount;
     let finished = false;
     const edges = [];
 
@@ -68,9 +68,8 @@ const renderSelected = (options) => {
     selected.forEach((i) => {
         const zone = zones[i];
         if (zone) {
-            
             ctx.beginPath();
-            ctx.moveTo(...zone[zone.length-1]);
+            ctx.moveTo(...zone[zone.length - 1]);
             zone.forEach((point, index) => {
                 ctx.lineTo(...zone[index]);
             });
@@ -79,7 +78,7 @@ const renderSelected = (options) => {
             ctx.fillStyle = isBlackNote(i) ? styles.colors.FILL_DARK : styles.colors.FILL_LIGHT;
             ctx.fill();
 
-            if (shouldRenderText) renderZoneText({ctx, zone, text: getNoteName(i)});
+            if (shouldRenderText) renderZoneText({ ctx, zone, text: getNoteName(i) });
         }
     });
 };
@@ -87,10 +86,10 @@ const renderSelected = (options) => {
 const renderKeys = (options) => {
     const zones = getZones(options);
     const { ctx } = options;
-    
+
     zones.forEach((zone, i) => {
         ctx.beginPath();
-        ctx.moveTo(...zone[zone.length-1]);
+        ctx.moveTo(...zone[zone.length - 1]);
         zone.forEach((point, index) => {
             ctx.lineTo(...zone[index]);
         });
@@ -100,33 +99,36 @@ const renderKeys = (options) => {
     });
 };
 
-const renderZoneText = ({ctx, zone, text}) => {
-    const center = zone.reduce((acc, val, index) => {
-        const [x, y] = val;
-        acc[0] += x;
-        acc[1] += y;
-        if (index === zone.length - 1) {
-            acc[0] /= zone.length;
-            acc[1] /= zone.length;
-        }
-        return acc;
-    }, [0, 0])
+const renderZoneText = ({ ctx, zone, text }) => {
+    const center = zone.reduce(
+        (acc, val, index) => {
+            const [x, y] = val;
+            acc[0] += x;
+            acc[1] += y;
+            if (index === zone.length - 1) {
+                acc[0] /= zone.length;
+                acc[1] /= zone.length;
+            }
+            return acc;
+        },
+        [0, 0]
+    );
     ctx.font = FONT;
     const height = FONT_SIZE;
     const width = FONT_SIZE;
 
     const [x, y] = center;
     ctx.fillStyle = styles.colors.TEXT;
-    ctx.fillText(text, x - width/2, y + height/2);
-}
+    ctx.fillText(text, x - width / 2, y + height / 2);
+};
 
 const render = (ctx, notes) => {
     const parameters = getParameters();
-    const selected = notes.map(note => note - octavesToSkip * notesPerOctave);
+    const selected = notes.map((note) => note - octavesToSkip * notesPerOctave);
 
     const width = WIDTH; //ctx.canvas.width;
     const height = HEIGHT; //ctx.canvas.height;
-    
+
     const centerX = width / 2;
     const centerY = height / 2;
 
@@ -151,7 +153,7 @@ class Spiral extends Component {
         this._onActiveNotesChanged = this._onActiveNotesChanged.bind(this);
 
         this.state = {
-            notes: []
+            notes: [],
         };
     }
 
@@ -168,7 +170,7 @@ class Spiral extends Component {
             notes: notes
                 .split(',')
                 .filter((a) => a !== '')
-                .sort()
+                .sort(),
         });
     }
 
@@ -207,12 +209,12 @@ const styles = {
         FILL_DARK: palette[3],
         LINE_SPIRAL: palette[4],
         LINE_NET: palette[4],
-        TEXT: palette[4]
+        TEXT: palette[4],
     },
     canvas: {
         width: WIDTH,
-        height: HEIGHT
-    }
+        height: HEIGHT,
+    },
 };
 
 export default Spiral;
