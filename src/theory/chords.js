@@ -46,7 +46,7 @@ const isCyclicEqual = (a, b) => {
     return bStartingIndexes.find(isEqualForStartingIndex);
 };
 
-export const findChord = (notes) => {
+export const detectChords = (notes) => {
     const intervals = getIntervals(notes);
     const interval = intervals.map((i) => i.interval);
     const intervalNotes = intervals.map((i) => i.note);
@@ -61,3 +61,5 @@ export const findChord = (notes) => {
     });
     return mapped;
 };
+
+export default detectChords;

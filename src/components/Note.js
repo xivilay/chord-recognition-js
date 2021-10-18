@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
 import { getFullNoteName } from '../theory/utils';
-import { findChord } from '../theory/chords';
+import { detectChords } from '../theory/chords';
 import { palette } from '../global-styles';
 
 class Note extends Component {
@@ -35,7 +35,7 @@ class Note extends Component {
     render() {
         const { notes } = this.state;
         const notesText = notes.map(getFullNoteName).join(' ');
-        const chords = findChord(notes);
+        const chords = detectChords(notes);
         const chordsText = chords.join('/');
 
         return (
