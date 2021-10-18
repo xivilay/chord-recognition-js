@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { EventBridge, Canvas, View } from 'react-juce';
 import { getNoteName, isBlackNote, notesPerOctave } from './utils';
+import { palette } from './global-styles';
 
 const octavesToSkip = 2;
 const shouldRenderText = true;
@@ -197,8 +198,6 @@ const WIDTH = 700;
 const HEIGHT = WIDTH;
 const FONT_SIZE = 15;
 const FONT = `${FONT_SIZE}px arial`;
-
-const palette = ['#edf2f4', '#8d99ae', '#ef233c', '#d90429', '#2b2d42'];
 
 const styles = {
     colors: {

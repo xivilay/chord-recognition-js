@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
 import { findChord, getFullNoteName } from './utils';
+import { palette } from './global-styles';
 
 class NoteOn extends Component {
     constructor(props) {
@@ -38,14 +39,18 @@ class NoteOn extends Component {
 
         return (
             <View {...this.props}>
-                <Text color='#1AB2B7' {...styles}>{`Notes: ${notesText}`}</Text>
-                <Text color='#66FDCF' {...styles}>{`Chord: ${chordsText}`}</Text>
+                <Text color={`${styles.colors.notes}`} {...styles}>{`Notes: ${notesText}`}</Text>
+                <Text color={`${styles.colors.chord}`} {...styles}>{`Chord: ${chordsText}`}</Text>
             </View>
         );
     }
 }
 
 const styles = {
+    colors: {
+        notes: palette[1],
+        chord: palette[3] 
+    },
     fontSize: 40.0,
     lineSpacing: 1.6,
     fontStyle: Text.FontStyleFlags.bold
