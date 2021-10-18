@@ -198,7 +198,7 @@ const HEIGHT = WIDTH;
 const FONT_SIZE = 15;
 const FONT = `${FONT_SIZE}px arial`;
 
-const palette = ['#edf2f4', '#8d99ae', '#ef233c', '#d90429', '#2b2d42', '#2b2d42', '#2b2d42'];
+const palette = ['#edf2f4', '#8d99ae', '#ef233c', '#d90429', '#2b2d42'];
 
 const styles = {
     colors: {
@@ -207,8 +207,8 @@ const styles = {
         FILL_LIGHT: palette[2],
         FILL_DARK: palette[3],
         LINE_SPIRAL: palette[4],
-        LINE_NET: palette[5],
-        TEXT: palette[6]
+        LINE_NET: palette[4],
+        TEXT: palette[4]
     },
     canvas: {
         width: WIDTH,
