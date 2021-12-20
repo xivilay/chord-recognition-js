@@ -22,7 +22,7 @@ const styles = {
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: 'linear-gradient(45deg, #333333, #555555, 50%)',
+        backgroundColor: 'linear-gradient(180deg, #222222, #323e44, 50%)',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
