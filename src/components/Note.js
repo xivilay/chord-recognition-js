@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { EventBridge, Text, View } from 'react-juce';
-import { getFullNoteName } from '../theory/utils';
-import { detectChords } from '../theory/chords';
+import { getFullNoteName } from '../theory/chords/utils';
+import { detectChords } from '../theory/chords/chords';
 import { palette } from '../global-styles';
 
 class Note extends Component {
